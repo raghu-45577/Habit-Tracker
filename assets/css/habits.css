@@ -1,0 +1,87 @@
+.all-habits {
+  width: 100%;
+  height: 93%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* list to display all the habits */
+.habits-list {
+  margin-top: 20px;
+  width: 60%;
+  height: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid blue;
+  border-radius: 1.5rem;
+  overflow-y: scroll;
+}
+
+/* to hide the scroll bar */
+.habits-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* styling for each item in the habits list */
+.habit-item {
+  width: 85%;
+  height: 80px;
+  padding: 5px;
+  background-color: rgb(76, 76, 75);
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.row {
+  width: 23%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* styling for the status dropdown */
+.habit-item select {
+  margin-top: 20px;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+  height: 50%;
+  background-color: rgb(76, 76, 75);
+  color: white;
+}
+
+.form-link {
+  width: 60%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-link a {
+  text-decoration: none;
+  color: white;
+  width: 15%;
+  height: 60%;
+  border: 2px solid white;
+  border-radius: 0.2rem;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* giving some responsiveness whenever user tries to reduce the screen */
+@media screen and (max-width: 1000px) {
+  .all-habits {
+    width: 1000px;
+  }
+}

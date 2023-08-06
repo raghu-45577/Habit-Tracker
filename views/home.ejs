@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/home.css" />
+<div class="habit-home">
+  <!-- form for creating the new habit -->
+  <form class="habit-form" action="/habits/create" method="post">
+    <div class="row-common">
+      <input
+        class="type-habit"
+        type="text"
+        name="habit"
+        placeholder="Title..."
+        required
+      />
+    </div>
+    <div class="row2">
+      <select class="col" name="category" required>
+        <option>Select Category</option>
+        <option value="Sport">Sport</option>
+        <option value="Personal">Personal</option>
+        <option value="Work">Work</option>
+      </select>
+      <input class="col" type="time" name="time" required />
+    </div>
+    <div class="row-common">
+      <input class="add-btn" type="submit" value="Add Habit" />
+    </div>
+  </form>
+</div>

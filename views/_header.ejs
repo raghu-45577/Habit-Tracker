@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/css/header.css" />
+<header>
+  <div class="app-name"><h2>Habbit Tracker</h2></div>
+  <div class="title"><h3><%=title%></h3></div>
+  <div class="links">
+    <% if(url!=="/list" || url==="/list/weekly") {%>
+    <a href="/habits/list"><span>Habits</span></a>
+    <%} else {%>
+    <a href="/habits/list/weekly"><span>Weekly Status</span></a>
+    <% } %>
+  </div>
+</header>

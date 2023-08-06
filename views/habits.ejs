@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/habits.css" />
+<div class="all-habits">
+
+  <div class="habits-list">
+    <!-- checking if the habits are present are not -->
+    <% if(habits.length===0){%>
+    <h3>No Habits Added</h3>  
+    <%} else {%>
+      <!-- looping through all the habits and displaying the current day's status -->
+    <% for(let i=0;i<habits.length;i++) { %>
+      <div class="habit-item">
+        <div class="row"><h4><%=habits[i].habit%></h4></div>
+        <div class="row"><%=habits[i].category%></div>
+        <div class="row"><%=habits[i].time%></div>
+        <div class="row">
+          <% if(habits[i].dates[6].status==="pending") { %>
+          <form action="/habits/<%=habits[i]._id%>" method="post">
+            <select name="status" onchange="this.form.submit()">
+              <option value="pending">None</option>
+              <option value="done">Done</option>
+              <option value="not done">Not Done</option>
+            </select>
+          </form>
+          <% } else if(habits[i].dates[6].status==="done") { %>  
+            <form action="/habits/<%=habits[i]._id%>" method="post">
+            <select name="status" onchange="this.form.submit()">
+              <option value="done">Done</option>
+              <option value="not done">Not Done</option>
+              <option value="pending">None</option>
+            </select>
+          </form>
+          <%} else {%>
+            <form action="/habits/<%=habits[i]._id%>" method="post">
+            <select name="status" onchange="this.form.submit()">
+              <option value="not done">Not Done</option>
+              <option value="pending">None</option>
+              <option value="done">Done</option>
+            </select>
+          </form> 
+          <%}%>
+        </div>
+      </div>
+    <% } %>
+    <% } %>
+  </div>
+  <!-- link to access the habit creation form page -->
+  <div class="form-link"><a href="/">Add Habit</a></div>
+</div>

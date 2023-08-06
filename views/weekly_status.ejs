@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/weekly_status.css" />
+<div class="all-habits-weekly-status">
+  <!-- checking any habits are present or not -->
+  <% if(habits.length!==0) {%>
+  <div class="month"><h3><%=habits[0].dates[6].date.substring(4,7)%></h3></div>
+  <%}%>
+  <div class="all-habits-weekly-status-list">
+    <!-- checking any habits are present or not -->
+    <% if(habits.length===0){%>
+      <h3>No Habits Added</h3>
+    <%} else {%>
+      <!-- looping through all the habits and displaying the status for entire 7 days - current day + prior 6 days  -->
+  <% for(let i=0;i<habits.length;i++) { %>
+    <div class="habit-item">
+      <div class="title-category">
+        <div><%=habits[i].habit%></div>
+        <div><%=habits[i].category%></div>
+      </div>
+      <div class="days-dates">
+      <% for(let j=0;j<habits[i].dates.length;j++) { %>
+      <div class="day">
+        <%=habits[i].dates[j].date.substring(0,3) %>
+      </div>
+      <% } %>
+      </div>
+      <div class="days-dates">
+      <% for(let j=0;j<habits[i].dates.length;j++) { %>
+      <div class="day">
+        <form action="/habits/<%=habits[i]._id%>/dates/<%=habits[i].dates[j]._id%>" method="post">
+          <!-- creating 3 different types of buttons to differeniate the status by giving different colors -->
+          <% if(habits[i].dates[j].status==="pending") {%>
+          <input type="submit" class="update-btn" value="<%=habits[i].dates[j].date.substring(8,10) %>">
+          <%} else if(habits[i].dates[j].status==="done") {%>
+          <input type="submit" class="update-btn btn-done" value="<%=habits[i].dates[j].date.substring(8,10) %>">
+          <%}else {%>
+          <input type="submit" class="update-btn btn-not-done" value="<%=habits[i].dates[j].date.substring(8,10) %>">
+          <%}%>
+        </form>
+      </div>
+      <% } %>
+      </div>
+    </div>
+  <% } %>
+  <%}%>
+  </div>
+  <!-- link to access the create habit form page -->
+  <div class="form-link"><a href="/">Add Habit</a></div>
+</div>
