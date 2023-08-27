@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 //connecting to local mogodb server
-mongoose.connect("mongodb://127.0.0.1/habbit-tracker");
+mongoose.connect(process.env.MONGODB_CONNECT_URI);
 
 const dbConnection = mongoose.connection;
 //if any issue in connecting to database
